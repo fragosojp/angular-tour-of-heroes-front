@@ -1,8 +1,13 @@
-.heroes {
-  cursor: pointer;
-}
+// .heroes {
+//   cursor: pointer;
+// }
 
 // .heroes li.selected {
 //   background-color: black;
 //   color: white;
 // }
+
+mat-row:hover {
+  cursor: pointer;
+  background: whitesmoke;
+}

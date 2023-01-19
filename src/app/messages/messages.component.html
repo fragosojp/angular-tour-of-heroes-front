@@ -6,14 +6,17 @@
         {{ messageService.getMessages().length }} records(s)
       </mat-panel-description>
     </mat-expansion-panel-header>
+
     <p>
       <button color="warn" mat-raised-button (click)="messageService.clear()">
         Clear messages
       </button>
     </p>
 
-    <div *ngFor="let message of messageService.getMessages()">
-      {{ message }}
-    </div>
+    <mat-list dense>
+      <mat-list-item *ngFor="let message of messageService.getMessages()">
+        {{ message }}
+      </mat-list-item>
+    </mat-list>
   </mat-expansion-panel>
 </mat-accordion>

@@ -9,13 +9,13 @@ import { MessageService } from '../message.service';
   styleUrls: ['./heroes.component.scss'],
 })
 export class HeroesComponent implements OnInit {
+  displayedColumns: string[] = ['id', 'name'];
   heroes: Hero[] = [];
   // selectedHero?: Hero;
 
   constructor(
-    private heroService: HeroService
-  ) // private messageService: MessageService
-  {}
+    private heroService: HeroService // private messageService: MessageService
+  ) {}
   ngOnInit(): void {
     this.getHeroes();
   }
