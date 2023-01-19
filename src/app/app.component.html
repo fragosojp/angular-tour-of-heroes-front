@@ -6,14 +6,24 @@
   <button
     mat-icon-button
     class="example-icon favorite-icon"
+    aria-label="Dashboard"
+    matTooltip="Dashboard"
+    routerLink="dashboard"
+  >
+    <mat-icon>dashboard</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
     aria-label="Heroes List"
-    routerLink="heroes"
     matTooltip="Heroes"
+    routerLink="heroes"
   >
     <mat-icon>sports_martial_arts</mat-icon>
   </button>
 </mat-toolbar>
-<div class="content">
+<div class="content" fxLa>
   <router-outlet></router-outlet>
+  <br />
   <app-messages></app-messages>
 </div>
