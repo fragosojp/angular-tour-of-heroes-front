@@ -11,16 +11,12 @@ import { HeroesModule } from './heroes/heroes.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    //@angular
+    //  @angular
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
 
-    //features
-    DashboardModule,
-    HeroesModule,
-
-    //app
+    //  app
     CoreModule,
     AppRoutingModule,
   ],
