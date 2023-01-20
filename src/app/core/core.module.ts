@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 
 const COMPONENTS = [MessagesComponent, ToolbarComponent];
