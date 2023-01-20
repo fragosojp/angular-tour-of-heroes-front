@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MaterialModule } from './material/material.module';
@@ -13,4 +13,12 @@ const MODULES = [MaterialModule, RouterModule];
   imports: [CommonModule, MODULES],
   exports: [COMPONENTS, MODULES],
 })
-export class CoreModule {}
+export class CoreModule {
+  constructor(@Optional() @SkipSelf() parentModule?: CoreModule) {
+    if (parentModule) {
+      const msg = `ModuleName has already been loaded.
+        Import ModuleName once, only, in the root AppModule.`;
+      throw new Error(msg);
+    }
+  }
+}
