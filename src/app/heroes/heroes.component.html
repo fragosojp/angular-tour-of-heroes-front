@@ -6,7 +6,7 @@
   </li>
 </ul> -->
 
-<mat-table [dataSource]="heroes">
+<mat-table [dataSource]="heroes" class="mat-elevation-z8">
   <!-- id -->
   <ng-container matColumnDef="id">
     <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
@@ -24,5 +24,6 @@
   <mat-row
     *matRowDef="let row; columns: displayedColumns"
     routerLink="/heroes/{{ row.id }}"
+    class="example-element-row"
   ></mat-row>
 </mat-table>
