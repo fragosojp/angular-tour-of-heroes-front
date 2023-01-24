@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./hero-detail.component.scss'],
 })
 export class HeroDetailComponent implements OnInit {
-  hero?: Hero;
+  hero!: Hero;
 
   constructor(
     private heroService: HeroService,
@@ -24,10 +24,18 @@ export class HeroDetailComponent implements OnInit {
   getHero(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     //console.log(id);
-    this.heroService.getHero(id).subscribe((hero) => (this.hero = hero));
+    this.heroService.getOne(id).subscribe((hero) => (this.hero = hero));
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  isFormValid(): boolean {
+    return !!this.hero.name.trim();
+  }
+
+  save(): void {
+    this.heroService.update(this.hero).subscribe(() => this.location.back());
   }
 }
