@@ -1,36 +1,54 @@
-<div *ngIf="hero">
-  <h1>{{ hero.name | uppercase }} Details</h1>
-
+<h1>{{ isEditing ? "Update: " : "Create" }} Hero</h1>
+<form [formGroup]="form" novalidate>
   <mat-card>
     <mat-card-content>
-      <mat-form-field>
+      <!-- id -->
+      <mat-form-field *ngIf="isEditing">
         <mat-label>ID</mat-label>
-        <input matInput disabled [value]="hero.id" />
+        <input matInput formControlName="id" />
       </mat-form-field>
     </mat-card-content>
+    <!-- name -->
     <mat-card-content>
-      <mat-form-field>
+      <mat-form-field class="example-full-width">
         <mat-label>HERO NAME</mat-label>
         <input
           matInput
           id="name"
-          [(ngModel)]="hero.name"
+          formControlName="name"
           placeholder="Name..."
           type="text"
         />
+        <mat-error *ngIf="form.controls['name'].hasError('required')">
+          Name is required.
+        </mat-error>
+
+        <mat-error *ngIf="form.controls['name'].hasError('minlength')">
+          Name shoud contain at least 3 characters.
+        </mat-error>
       </mat-form-field>
     </mat-card-content>
 
     <mat-card-actions>
       <button
         color="primary"
-        [disabled]="!isFormValid()"
         mat-raised-button
-        (click)="save()"
+        *ngIf="!isEditing"
+        (click)="create()"
       >
-        Save
+        Create
       </button>
+
+      <button
+        color="primary"
+        mat-raised-button
+        *ngIf="isEditing"
+        (click)="update()"
+      >
+        Update
+      </button>
+
       <button mat-raised-button (click)="goBack()">Go Back</button>
     </mat-card-actions>
   </mat-card>
-</div>
+</form>

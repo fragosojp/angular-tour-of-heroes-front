@@ -2,11 +2,11 @@
   "heroes": [
     {
       "id": 1,
-      "name": "Wolverine"
+      "name": "Wolverine2"
     },
     {
       "id": 2,
-      "name": "Homem Aranha"
+      "name": "value.name"
     },
     {
       "id": 3,
@@ -39,6 +39,18 @@
     {
       "id": 10,
       "name": "Gavião Arqueiro"
+    },
+    {
+      "name": "Joao Fragoso",
+      "id": 11
+    },
+    {
+      "id": 12,
+      "name": "teste123"
+    },
+    {
+      "name": "teste",
+      "id": 13
     }
   ]
 }
