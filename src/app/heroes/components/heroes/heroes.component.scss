@@ -26,3 +26,13 @@ mat-row:hover {
 .demo-row-is-clicked {
   font-weight: bold;
 }
+
+.mat-column-id {
+  max-width: 60px;
+}
+
+.mat-column-actions {
+  border-left: 1px solid currentColor;
+  max-width: 80px;
+  padding-left: 16px;
+}

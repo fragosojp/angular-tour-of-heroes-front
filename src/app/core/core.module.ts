@@ -9,8 +9,10 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { HttpErrorInterceptor } from './interceptors/htt-error.interceptor';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 const COMPONENTS = [
+  ConfirmationDialogComponent,
   LoadingComponent,
   MessagesComponent,
   ToolbarComponent,
