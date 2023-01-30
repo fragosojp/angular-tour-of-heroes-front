@@ -38,7 +38,6 @@ export class HeroesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       if (result) {
         this.heroService.delete(hero).subscribe(() => {
           //Recarregando o backEnd a pos o delete
@@ -48,5 +47,9 @@ export class HeroesComponent implements OnInit {
         });
       }
     });
+  }
+
+  onSelected(hero: Hero): void {
+    this.delete(hero);
   }
 }

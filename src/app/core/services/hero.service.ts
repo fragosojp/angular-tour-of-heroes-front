@@ -32,6 +32,23 @@ export class HeroService {
       .get<Hero>(this.getUrl(id))
       .pipe(tap((hero) => this.log(`Fetched ${this.descAttibutes(hero)}`)));
   }
+  //Get / heores?name=term
+  search(term: string): Observable<Hero[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+
+    return this.http
+      .get<Hero[]>(`${this.heroesUrl}?name=${term}`)
+      .pipe(
+        tap((heroes) =>
+          heroes.length
+            ? this.log(`found ${heroes.length} Hero(s) matching "${term}"`)
+            : this.log(`no Hero(s) matching "${term}"`)
+        )
+      );
+  }
+
   // POST / Heroes
   create(hero: Hero): Observable<Hero> {
     return this.http
