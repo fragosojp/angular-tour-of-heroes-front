@@ -1,3 +1,4 @@
+import { TokenInterceptor } from './interceptors/token.interceptor';
 import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { MessagesComponent } from './components/messages/messages.component';
@@ -10,20 +11,21 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { HttpErrorInterceptor } from './interceptors/htt-error.interceptor';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { IconsModule } from '../icons/icons.module';
 
-const COMPONENTS = [
+const CORE_COMPONENTS = [
   ConfirmationDialogComponent,
   LoadingComponent,
   MessagesComponent,
   ToolbarComponent,
   PageNotFoundComponent,
 ];
-const MODULES = [MaterialModule, RouterModule];
+const MODULES = [MaterialModule, IconsModule, RouterModule, CommonModule];
 
 @NgModule({
-  declarations: [COMPONENTS],
-  imports: [CommonModule, MODULES],
-  exports: [COMPONENTS, MODULES],
+  declarations: [CORE_COMPONENTS],
+  imports: [MODULES],
+  exports: [CORE_COMPONENTS],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -33,6 +35,11 @@ const MODULES = [MaterialModule, RouterModule];
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpErrorInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
       multi: true,
     },
   ],

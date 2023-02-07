@@ -7,7 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "backend": "json-server --watch ./src/mocks/db.json --routes ./src/mocks/routes.json --delay 600"
+    "backend": "json-server --watch ./src/mocks/db.json --routes ./src/mocks/routes.json --delay 600",
+    "compodoc:build": "compodoc -p tsconfig.doc.json",
+    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s",
+    "compodoc:serve": "compodoc -s"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +26,9 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+    "@fortawesome/angular-fontawesome": "^0.12.1",
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
@@ -31,6 +37,7 @@
     "@angular-devkit/build-angular": "^15.0.3",
     "@angular/cli": "~15.0.3",
     "@angular/compiler-cli": "^15.0.0",
+    "@compodoc/compodoc": "^1.1.19",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.5.0",
     "json-server": "^0.17.1",
