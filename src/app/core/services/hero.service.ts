@@ -66,7 +66,7 @@ export class HeroService {
   delete(hero: Hero): Observable<any> {
     return this.http
       .delete<any>(this.getUrl(hero.id))
-      .pipe(tap((hero) => this.log(`Deleted ${this.descAttibutes(hero)}`)));
+      .pipe(tap(() => this.log(`Deleted ${this.descAttibutes(hero)}`)));
   }
 
   private descAttibutes(hero: Hero): string {
